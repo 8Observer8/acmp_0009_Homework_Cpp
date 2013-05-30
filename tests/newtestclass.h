@@ -16,6 +16,7 @@ class newtestclass : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST(testHomework_01);
     CPPUNIT_TEST(testHomework_02);
     CPPUNIT_TEST(testHomework_03);
+    CPPUNIT_TEST(testHomework_MinAndMaxAreLocatedNear);
     CPPUNIT_TEST(testHomework_THROW_lowBound);
     CPPUNIT_TEST(testHomework_NO_THROW_lowBound);
     CPPUNIT_TEST(testHomework_THROW_highBound);
@@ -33,6 +34,7 @@ private:
     void testHomework_01();
     void testHomework_02();
     void testHomework_03();
+    void testHomework_MinAndMaxAreLocatedNear();
     void testHomework_THROW_lowBound();
     void testHomework_NO_THROW_lowBound();
     void testHomework_THROW_highBound();

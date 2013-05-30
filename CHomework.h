@@ -25,7 +25,7 @@ public:
      * @param product The product numbers arranged between the
      * minimum and maximum elements
      */
-    void homework(const std::vector<int>& inputArr,
+    void homework(std::vector<int>& inputArr,
             int& sum,
             int& product) throw(std::out_of_range);
 };
