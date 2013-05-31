@@ -97,6 +97,29 @@ void newtestclass::testHomework_03() {
     CPPUNIT_ASSERT_EQUAL(expectedProduct, product);
 }
 
+void newtestclass::testHomework_AllTheSame() {
+    std::vector<int> inputArr;
+
+    inputArr.push_back(7);
+    inputArr.push_back(7);
+    inputArr.push_back(7);
+    inputArr.push_back(7);
+    inputArr.push_back(7);
+    inputArr.push_back(7);
+
+    int sum;
+    int product;
+    CHomework cHomework;
+
+    CPPUNIT_ASSERT_NO_THROW(cHomework.homework(inputArr, sum, product));
+
+    int expectedSum = 42;
+    int expectedProduct = 0;
+
+    CPPUNIT_ASSERT_EQUAL(expectedSum, sum);
+    CPPUNIT_ASSERT_EQUAL(expectedProduct, product);
+}
+
 void newtestclass::testHomework_MinAndMaxAreLocatedNear() {
     std::vector<int> inputArr;
 
@@ -114,6 +137,28 @@ void newtestclass::testHomework_MinAndMaxAreLocatedNear() {
 
     int expectedSum = 17;
     int expectedProduct = 0;
+
+    CPPUNIT_ASSERT_EQUAL(expectedSum, sum);
+    CPPUNIT_ASSERT_EQUAL(expectedProduct, product);
+}
+
+void newtestclass::testHomework_MinAfterMax() {
+    std::vector<int> inputArr;
+
+    inputArr.push_back(9);
+    inputArr.push_back(5);
+    inputArr.push_back(-1);
+    inputArr.push_back(3);
+    inputArr.push_back(-7);
+
+    int sum;
+    int product;
+    CHomework cHomework;
+
+    CPPUNIT_ASSERT_NO_THROW(cHomework.homework(inputArr, sum, product));
+
+    int expectedSum = 17;
+    int expectedProduct = -15;
 
     CPPUNIT_ASSERT_EQUAL(expectedSum, sum);
     CPPUNIT_ASSERT_EQUAL(expectedProduct, product);

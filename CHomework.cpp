@@ -8,7 +8,7 @@
 #include <algorithm>
 #include "CHomework.h"
 
-void CHomework::homework(std::vector<int>& inputArr,
+void CHomework::homework(const std::vector<int>& inputArr,
         int& sum,
         int& product) throw (std::out_of_range) {
 
@@ -30,13 +30,12 @@ void CHomework::homework(std::vector<int>& inputArr,
     }
     
     // Find product between the first maximum and minimum elements of an array
-
     int minElem = *std::min_element(inputArr.begin(), inputArr.end());
     int maxElem = *std::max_element(inputArr.begin(), inputArr.end());
     
-    std::vector<int>::iterator itMinElem = std::find(inputArr.begin(),
+    std::vector<int>::const_iterator itMinElem = std::find(inputArr.begin(),
             inputArr.end(), minElem);
-    std::vector<int>::iterator itMaxElem = std::find(inputArr.begin(),
+    std::vector<int>::const_iterator itMaxElem = std::find(inputArr.begin(),
             inputArr.end(), maxElem);
     
     if (itMinElem == itMaxElem) {
@@ -44,8 +43,8 @@ void CHomework::homework(std::vector<int>& inputArr,
         return;
     }
     
-    std::vector<int>::iterator itBeginProduct;
-    std::vector<int>::iterator itEndProduct;
+    std::vector<int>::const_iterator itBeginProduct;
+    std::vector<int>::const_iterator itEndProduct;
     if (itMinElem < itMaxElem) {
         itBeginProduct = itMinElem;
         itEndProduct = itMaxElem;
@@ -55,7 +54,12 @@ void CHomework::homework(std::vector<int>& inputArr,
         itEndProduct = itMinElem;
     }
     
-    for (std::vector<int>::iterator it = itBeginProduct+1;
+    if (itBeginProduct == itEndProduct-1) {
+        product = 0;
+        return;
+    }
+    
+    for (std::vector<int>::const_iterator it = itBeginProduct+1;
             it < itEndProduct; it++) {
         product *= *it;
     }
